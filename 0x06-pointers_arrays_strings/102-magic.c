@@ -2,12 +2,12 @@
 
 int main(void)
 {
-	int o;
+	int n;
 	 int a[5];
 	 int *p;
 
 	 a[2] = 1024;
-	 p = &o;
+	 p = &n;
 	 /*
 	  * write your line of code here...
 	  * Remember:
