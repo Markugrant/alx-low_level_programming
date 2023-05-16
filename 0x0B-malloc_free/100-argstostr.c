@@ -32,7 +32,7 @@ char *argstostr(int ac, char **av)
 		}
 		if (str[c] == '\0')
 		{
-			str[c++] = '\b';
+			str[c++] = '\n';
 		}
 	}
 	return (str);
