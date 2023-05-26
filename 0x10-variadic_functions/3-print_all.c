@@ -8,43 +8,41 @@
 void print_all(const char * const format, ...)
 {
 	int a = 0;
-	char *de, *sep = "";
+	char *str, *sep = "";
 
-	va_list kat;
+	va_list list;
 
-	va_start(kat, format);
+	va_start(list, format);
 
 	if (format)
 	{
 		while (format[a])
 		{
-		switch (format[a])
-		{
-			case 'c':
-				printf("%s%c", sep, va_arg(kat, int));
-				break;
-			case 'i':
-				printf("%s%d", sep, va_arg(kat, int));
-				break;
-			case 'f':
-				printf("%s%f", sep, va_arg(kat, double));
-				break;
-			case 's':
-				
-				de = va_arg(kat, char *);
-				if (!de)
-					de = "(nil)";
-				
-				printf("%s%s", sep, de);
-				break;
-					default:
-				a++;
-				continue;
-				}
-				sep = ",";
-				a++;
+			switch (format[a])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(list, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					a++;
+					continue;
+			}
+			sep = ", ";
+			a++;
 		}
 	}
-		printf("\n");
-		va_end(kat);
+	printf("\n");
+	va_end(list);
 }
